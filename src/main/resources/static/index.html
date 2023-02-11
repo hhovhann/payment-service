@@ -13,7 +13,7 @@
         .Buttons({
             // Sets up the transaction when a PayPal payment button is clicked
             createOrder: (data, actions) => {
-                return fetch("http://localhost:8080/api/orders", {
+                return fetch("https://91e7-46-70-240-240.eu.ngrok.io/api/orders", {
                     method: "post",
                     // use the "body" param to optionally pass additional order information
                     // like product ids or amount or you can pass them in the backend like we did.
@@ -23,7 +23,7 @@
             },
             // Finalize the transaction after payer approval
             onApprove: (data, actions) => {
-                return fetch(`http://localhost:8080/api/orders/${data.orderID}/capture`, {
+                return fetch(`https://91e7-46-70-240-240.eu.ngrok.io/api/orders/${data.orderID}/capture`, {
                     method: "post",
                 })
                     .then(response => response.json())
